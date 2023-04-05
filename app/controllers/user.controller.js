@@ -44,8 +44,7 @@ exports.register=async(req,res,next)=>{
     }
 }
 exports.tokenuser=async (req,res,next)=>{
-    const authHeader=req.header('Authorization')
-    const token=authHeader && authHeader.split(' ')[1]
+    const token=req.body.token
     if(!token){
         return next(new ApiError(401,"Access token not found"))
     }
